@@ -15,15 +15,15 @@ public class Main {
         int count = 0;
         while(!gameOver){
             printboard(board);
+            if(count>=9){
+                System.out.println("Match Draw");
+                return;
+            }
             System.out.print("Player " + player + " enter: ");
             int row = scan.nextInt();
             int col = scan.nextInt();
             if(board[row][col]==' '){
                 count++;
-                if(count>9){
-                    System.out.println("Match Draw");
-                    return;
-                }
                 board[row][col] = player;
                 gameOver = havewon(board, player);
                 if(gameOver){
