@@ -14,7 +14,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         int count = 0;
         while(!gameOver){
-            printboard(board);
+            printBoard(board);
             if(count>=9){
                 System.out.println("Match Draw");
                 return;
@@ -25,9 +25,9 @@ public class Main {
             if(board[row][col]==' '){
                 count++;
                 board[row][col] = player;
-                gameOver = havewon(board, player);
+                gameOver = haveWon(board, player);
                 if(gameOver){
-                    printboard(board);
+                    printBoard(board);
                     System.out.print("Player "+player+" has won");
                 }
                 else{
@@ -43,10 +43,10 @@ public class Main {
             else{
                 System.out.println("Invalid move");
             }
-//            printboard(board);
+//            printBoard(board);
         }
     }
-    public static void printboard(char[][] board){
+    public static void printBoard(char[][] board){
         System.out.println("-+---+---+---+-");
         for(int row=0; row<board.length; row++){
             for(int col=0; col<board.length; col++){
@@ -57,7 +57,7 @@ public class Main {
             System.out.println("-+---+---+---+-");
         }
     }
-    public static boolean havewon(char[][] board, char player){
+    public static boolean haveWon(char[][] board, char player){
         for(int row=0; row<board.length; row++){
             if((board[row][0]==player && board[row][1]==player && board[row][2]==player) ||
                     (board[0][row]==player && board[1][row]==player && board[2][row]==player)) {
